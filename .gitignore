@@ -9,6 +9,7 @@
 .idea/**/shelf
 
 Sprachkonzepte.iml
+.idea
 
 # AWS User-specific
 .idea/**/aws.xml
