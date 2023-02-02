@@ -21,7 +21,7 @@ public final class Exercise1a {
         String precision = "(\\.\\d*)?";
 
         Pattern regex = Pattern.compile("(%" + index + flags + width + precision + conversions + ")|" + text);
-        Matcher matcher = regex.matcher(test3);
+        Matcher matcher = regex.matcher(test1);
 
         while (matcher.find() && !matcher.group().equals("")) {
             if (matcher.group().startsWith("%"))
