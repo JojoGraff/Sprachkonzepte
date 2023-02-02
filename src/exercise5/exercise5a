@@ -1,0 +1,28 @@
+Part 1
+
+Liste 1         Liste 2               Instanziierung
+[X,Y,Z]        [john,likes,fish];     X = john, Y = likes, Z = fish
+[cat]          [X|Y]                  X = cat, Y = []
+[X,Y|Z]        [mary,likes,wine]      X = mary, Y = likes, Z = [wine]
+[[the,Y]|Z]    [[X,hare],[is,here]]   X = the, Y = hare, Z = [[is,here]]
+[golden|T]     [golden,norfolk]       T = [norfolk]
+[white,horse]  [horse,X]              false
+[white|Q]      [P,horse]              P = white, Q = [horse]
+
+Part 2
+
+factorial(0, 1).
+factorial(N, F):-
+    N > 0,
+    Prev is N - 1,
+    factorial(Prev, R),
+    F is R * N.
+
+
+Part 3
+
+– append(X, Y, [1,2,3,4]).
+-->  Alle Elemente in Y, dann in X
+
+- append(X, [1,2,3,4], Y).
+--> Stack overflow error
