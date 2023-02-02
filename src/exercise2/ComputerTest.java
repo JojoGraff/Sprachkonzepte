@@ -21,6 +21,8 @@ public class ComputerTest {
 
         Computer ast = new ComputerBuild().build(tree);
         System.out.println(ast.toString());
+        System.out.println(ast.dynamicSemantic());
+
 
 
 

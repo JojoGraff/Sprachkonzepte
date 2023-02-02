@@ -43,8 +43,18 @@ public class ComputerBuild extends computerGrammarBaseListener {
         String type = ctx.PART().getText();
         String producer = ctx.PRODUCER().getText();
         String price = ctx.price().getText();
-        //this.partStack.push(new Part(type,producer,new Price(1,"$")));
-        this.parts.add(new Part(type,producer,price));
+
+        if(type.matches("Motherboard|Central Processing Unit|Case|Power Supply")) {
+            boolean duplicate = parts.stream().anyMatch(o -> o.getType().equals(type));
+            if(!duplicate) {
+                this.parts.add(new Part(type,producer,price));
+            }
+
+        }
+        else {
+            this.parts.add(new Part(type,producer,price));
+        }
+
     }
 
     @Override
