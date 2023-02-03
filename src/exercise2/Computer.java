@@ -2,7 +2,7 @@ package exercise2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Computer {
 
@@ -13,10 +13,6 @@ public class Computer {
         partList = new ArrayList<>();
         this.partList.addAll(part);
         this.price = price;
-    }
-
-    public List<Part> getParts() {
-        return this.partList;
     }
 
     public String dynamicSemantic() {

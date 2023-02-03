@@ -3,9 +3,6 @@
     <v-app-bar class="v-app-bar">Small weather service</v-app-bar>
     <v-main>
       <div>Please submit your location to get a report</div>
-
-
-
       <v-btn @click="getPosition(); location = true">submit location</v-btn>
     </v-main>
   </v-app>
@@ -17,7 +14,6 @@
 let location;
 let lat: number;
 let lon: number;
-
 let temp: string;
 let windspeed: string;
 let winddirection: string;
@@ -33,9 +29,6 @@ export default {
     }
 
   },
-
-
-
 
   methods: {
     getPosition: function () {
@@ -83,6 +76,7 @@ export default {
 
       console.log("url: " + url)
       console.log(weatherData)
+
       temp = weatherData.air_temperature
       winddirection = weatherData.wind_from_direction
       windspeed = weatherData.wind_speed
@@ -94,9 +88,3 @@ export default {
 
 }
 </script>
-<style>
-v-app-bar {
-  text-align: center;
-  font-family: Roboto,sans-serif;
-}
-</style>

@@ -13,15 +13,15 @@ public final class Exercise6 {
 
     public static void main(String[] args) throws Exception {
         ArrayList<Classes> classArray = new ArrayList<>();
-        for (String arg : args) {
-            Class<?> c = Class.forName(arg);
+        for (String argument : args) {
+            Class<?> c = Class.forName(argument);
             Classes classes = new Classes(c.getName(), c);
             classArray.add(classes);
         }
 
-        ST templ = new STGroupFile("aufgabe6.stg").getInstanceOf("aufgabe6");
-        templ.add("classes", classArray);
-        String result = templ.render();
+        ST template = new STGroupFile("aufgabe6.stg").getInstanceOf("aufgabe6");
+        template.add("classes", classArray);
+        String result = template.render();
 
         FileWriter fileWriter = new FileWriter("output.html");
         fileWriter.write(result);
