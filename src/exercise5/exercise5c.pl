@@ -7,10 +7,20 @@ zug(karlsruhe, 12.08, mainz, 13.47).
 zug(stuttgart, 11.51, mannheim, 12.28).
 zug(mannheim, 12.39, mainz, 13.18).
 
-verbindung(Start, _, Ziel, AnkunftO, [Ziel]) :-
-    zug(Start, _, Ziel, AnkunftO).
-verbindung(Start, AbfahrtO, Ziel, AnkunftO, [Halt|List]) :-
-    zug(Start, Abfahrt, Halt, Ankunft),
-    Abfahrt >= AbfahrtoO,
-    verbindung(Halt, Ankunft, Ziel, AnkunftO, List),
-    not(member(Halt, List)).
+verbindung(Start, Abfahrt, Ziel, Plan) :-
+    zug(Start, AbfahrtZ, Ziel, ZielZ),
+    AbfahrtZ >= Abfahrt,
+    append([Start, AbfahrtZ, Ziel, ZielZ], [], Plan).
+
+
+verbindung(Start, Abfahrt, Ziel, Plan) :-
+    zug(Start, AbfahrtZ, Halt, HaltZ),
+    AbfahrtZ >= Abfahrt,
+    verbindung(Halt, HaltZ, Ziel, New_Plan),
+    append([Start, AbfahrtZ, Halt, HaltZ], New_Plan, Plan).
+
+
+/** <examples>
+?-
+verbindung(konstanz, 08.40, mainz, Plan)
+*/
