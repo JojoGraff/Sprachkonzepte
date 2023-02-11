@@ -13,7 +13,7 @@ public final class Exercise1a {
         String test3 = "Wochentag: %tA Uhrzeit: %tT";
 
 
-        String text = "([a-z ]*)";
+        String text = "([a-zA-Z: ]*)";
         String conversions = "[bBhHsScCdoxXeEfgGaAtT%n]";
         String flags = "[-#+ 0,(]*";
         String index = "([1-9][0-9]*\\$)*";
@@ -21,7 +21,7 @@ public final class Exercise1a {
         String precision = "(\\.\\d*)?";
 
         Pattern regex = Pattern.compile("(%" + index + flags + width + precision + conversions + ")|" + text);
-        Matcher matcher = regex.matcher(test1);
+        Matcher matcher = regex.matcher(test3);
 
         while (matcher.find() && !matcher.group().equals("")) {
             if (matcher.group().startsWith("%"))

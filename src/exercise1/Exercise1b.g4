@@ -1,15 +1,13 @@
-grammar Exercise1b;
+lexer grammar Exercise1b;
 
-time : hours COLON minutes SPACE daytime | hours COLON TIMELOWER | TIMEUPPER;
+Time : HOURS COLON MINUTES SPACE DAYTIME | HOURS COLON TIMELOWER | TIMEUPPER;
 
-hours : HOURS;
-minutes : MINUTES;
-daytime : DAYTIME;
+fragment HOURS : ('0'[1-9] | '1'[0-2]);
+fragment MINUTES : ([0-5][0-9]);
+fragment TIMELOWER: ('noon' | 'midnight');
+fragment TIMEUPPER: ('Noon' | 'Midnight');
+fragment DAYTIME : ('a.m.' | 'p.m.');
+fragment COLON: (':');
+fragment SPACE: (' ');
 
-HOURS : ('0'[1-9] | '1'[0-2]);
-MINUTES : ([0-5][0-9]);
-TIMELOWER: ('noon' | 'midnight');
-TIMEUPPER: ('Noon' | 'Midnight');
-DAYTIME : ('a.m.' | 'p.m.');
-COLON: (':');
-SPACE: (' ');
+WS: [ \t\r\n]+ -> channel(HIDDEN);
